@@ -1,0 +1,64 @@
+name:                haskelaria-lima
+version:             0.1.0.0
+github:              "githubuser/haskelaria-lima"
+license:             BSD-3-Clause
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2025 Author name here"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+description:         Please see the README on GitHub at <https://github.com/githubuser/haskelaria-lima#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- cassava
+- containers
+- deepseq
+- directory # Adicionar se não estiver presente
+- filepath
+- parallel
+- random
+- time     # Para o timestamp
+- clock    # Para medição de tempo precisa
+- vector
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  haskelaria-lima-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskelaria-lima
+
+tests:
+  haskelaria-lima-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskelaria-lima
+    - hspec >= 2.0
